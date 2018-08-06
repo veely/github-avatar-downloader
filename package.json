@@ -1,0 +1,22 @@
+{
+  "name": "github-avatar-downloader",
+  "version": "1.0.0",
+  "description": "Downloads github avatars using github API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veely/github-avatar-downloader.git"
+  },
+  "author": "Vincent Ly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/veely/github-avatar-downloader/issues"
+  },
+  "homepage": "https://github.com/veely/github-avatar-downloader#readme",
+  "dependencies": {
+    "request": "^2.87.0"
+  }
+}
