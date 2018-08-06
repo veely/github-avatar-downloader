@@ -27,16 +27,17 @@ function downloadImageByURL(url, filePath) {
     .on('response', function (response) {
          console.log('downloading image...');
     })
+    .on('end', function (end) {
+      console.log('download complete.')
+    })
     .pipe(fs.createWriteStream(filePath));
-
 }
 
-downloadImageByURL("https://avatars2.githubusercontent.com/u/2741?v=3&s=466", "avatars/kvirani.jpg");
 
-// getRepoContributors("jquery", "jquery", function(err, result) {
-//   console.log("Errors:", err);
-//   // console.log(result);
-//   for (let key of result) {
-//     console.log(key.avatar_url);
-//   }
-// });
+getRepoContributors("jquery", "jquery", function(err, result) {
+  console.log("Errors:", err);
+  // console.log(result);
+  for (let key of result) {
+    downloadImageByURL(key.avatar_url, "avatars/" + key.login + ".jpg");
+  }
+});
