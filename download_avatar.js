@@ -25,10 +25,10 @@ function downloadImageByURL(url, filePath) {
       throw err;
     })
     .on('response', function (response) {
-         console.log('downloading image...');
+         console.log('Downloading image from ' + url + '...');
     })
     .on('end', function (end) {
-      console.log('download complete.')
+      console.log('Download of ' + url + ' complete.')
     })
     .pipe(fs.createWriteStream(filePath));
 }
