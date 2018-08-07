@@ -34,10 +34,15 @@ function downloadImageByURL(url, filePath) {
 }
 
 
-getRepoContributors("jquery", "jquery", function(err, result) {
-  console.log("Errors:", err);
-  // console.log(result);
-  for (let key of result) {
-    downloadImageByURL(key.avatar_url, "avatars/" + key.login + ".jpg");
+getRepoContributors(process.argv[2], process.argv[3], function(err, result) {
+  if (err) {
+    console.log("Errors:", err);
+  }
+  if (process.argv[2] && process.argv[3]) {
+    for (let key of result) {
+      downloadImageByURL(key.avatar_url, "avatars/" + key.login + ".jpg");
+    }
+  } else {
+    console.log("You must enter an owner and a repo name respectively!")
   }
 });
